@@ -1,5 +1,5 @@
 # cockatrice netdata plugin
-# (C) 2016 skwerlman <skw@tetrarch.co>
+# (C) 2018 skwerlman <skw@tetrarch.co>
 # MIT/EXPAT
 
 cockatrice_update_every=15
