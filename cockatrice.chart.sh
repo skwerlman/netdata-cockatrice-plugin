@@ -38,9 +38,11 @@ cockatrice_get() {
 	cockatrice_timest=${data[1]}
 	cockatrice_uptime=${data[2]}
 	cockatrice_users_count=${data[3]}
-	cockatrice_games_count=${data[4]}
-	cockatrice_rx_bytes=${data[5]}
-	cockatrice_tx_bytes=${data[6]}
+	cockatrice_mods_count=${data[4]}
+	cockatrice_mods_list=${data[5]}
+	cockatrice_games_count=${data[6]}
+	cockatrice_rx_bytes=${data[7]}
+	cockatrice_tx_bytes=${data[8]}
 	return 0
 }
 
@@ -59,6 +61,7 @@ CHART cockatrice.uptime '' "uptime" "seconds" "Uptime" cockatrice line $((cockat
 DIMENSION uptime '' absolute 1 1
 CHART cockatrice.stats '' "statistics" '' "Statistics" cockatrice line $((cockatrice_priority + 1)) $cockatrice_update_every
 DIMENSION users '' absolute 1 1
+DIMENSION mods '' absolute 1 1
 DIMENSION games '' absolute 1 1
 CHART cockatrice.network '' "network" 'bytes/s' 'Network Usage' cockatrice line $((cockatrice_priority + 1)) $cockatrice_update_every
 DIMENSION rxbytes "received" absolute 1 15
@@ -75,6 +78,7 @@ SET uptime = $cockatrice_uptime
 END
 BEGIN cockatrice.stats $1
 SET users = $cockatrice_users_count
+SET mods = $cockatrice_mods_count
 SET games = $cockatrice_games_count
 END
 BEGIN cockatrice.network $1
