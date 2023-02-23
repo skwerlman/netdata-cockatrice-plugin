@@ -10,6 +10,8 @@ Track statistics about your servatrice install in netdata:
 - Network stats:
   - Bytes sent
   - Bytes recieved
+  
+Stats are retrieved every 15 seconds, since that is how often servatrice logs them in the database.
 
 ### Install
 ```sh
